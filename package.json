@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "cypress open",
-    "test": "cypress run"
+    "test": "cypress run",
+    "chrome-headed": "./node_modules/.bin/cypress run --headed --browser chrome",
+    "webdriver-uni": "./node_modules/.bin/cypress run --spec cypress/e2e/webdriver-uni/*"
   },
   "author": "Gabriel C. Moris",
   "license": "ISC",
