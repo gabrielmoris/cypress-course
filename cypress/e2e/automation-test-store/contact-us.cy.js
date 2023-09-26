@@ -6,7 +6,11 @@ describe("Test Contact Us form via Automation Test store", () => {
     cy.visit("https://www.automationteststore.com/");
     //For this kind of selector I need to install:  npm install --save-dev @cypress/xpath
     // in /support e2e.js I should add: require("@cypress/xpath");
-    cy.xpath("//a[contains(@href, 'contact')]").click();
+    cy.xpath("//a[contains(@href, 'contact')]")
+      .click()
+      .then((link) => {
+        cy.log("User clicks in button: ", link.text());
+      });
     cy.get("#ContactUsFrm_first_name").type("My first Name");
     cy.get("#ContactUsFrm_email").type("email@saludos.com");
     cy.get("#ContactUsFrm_email").should("have.attr", "name", "email");
