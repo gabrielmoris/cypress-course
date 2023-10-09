@@ -3,9 +3,9 @@
 
 describe("Test Contact Us form via WebdriverUni", () => {
   it("Should be able to submit a succesful submission via Contact Uns Form", () => {
-    cy.visit("http://www.webdriveruniversity.com/Contact-Us/contactus.html");
+    cy.visit("http://www.webdriveruniversity.com/");
     // To remove an attribute
-    // cy.get("#contact-us").invoke("removeAttr", "target").click();
+    cy.get("#contact-us").invoke("removeAttr", "target").click();
 
     // If I want to access to the DOM directly:
     cy.document().should("have.property", "charset").and("eq", "UTF-8");
