@@ -21,4 +21,19 @@ describe("Handling Data fro WebdriverUni", () => {
         expect(totalAge).to.eq(322);
       });
   });
+
+  it("Calculate and assert the age of a given user based on last name", () => {
+    cy.get("#thumbnail-1 tr td:nth-child(2)").each(($el, index, $list) => {
+      const surname = $el.text();
+      if (surname.includes("Woods")) {
+        cy.get("#thumbnail-1 tr td:nth-child(2)")
+          .eq(index)
+          .next()
+          .then((age) => {
+            const userAge = age.text();
+            expect(userAge).to.equal("80");
+          });
+      }
+    });
+  });
 });
