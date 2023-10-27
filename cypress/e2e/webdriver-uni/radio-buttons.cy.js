@@ -2,12 +2,14 @@
 /// <reference types="Cypress"/>
 
 describe("Verify radio buttons in webdriveruni", () => {
-  it("Check specific radio buttons", () => {
+  beforeEach(() => {
     cy.visit("http://www.webdriveruniversity.com/");
     cy.get("#dropdown-checkboxes-radiobuttons")
       .invoke("removeAttr", "target")
       .click({ force: true });
+  });
 
+  it("Check specific radio buttons", () => {
     cy.get("#radio-buttons")
       .find("input[type='radio']")
       .as("checkboxes")
@@ -18,11 +20,6 @@ describe("Verify radio buttons in webdriveruni", () => {
   });
 
   it("Validate states of specific radio buttons", () => {
-    cy.visit("http://www.webdriveruniversity.com/");
-    cy.get("#dropdown-checkboxes-radiobuttons")
-      .invoke("removeAttr", "target")
-      .click({ force: true });
-
     cy.get('[value="lettuce"]').should("not.be.checked");
     cy.get('[value="cabbage"]').should("be.disabled");
     cy.get('[value="pumpkin"]').should("be.checked");
