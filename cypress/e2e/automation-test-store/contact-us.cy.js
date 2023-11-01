@@ -2,6 +2,11 @@
 /// <reference types="Cypress"/>
 
 describe("Test Contact Us form via Automation Test store", () => {
+  before(() => {
+    // shis have to match the filename in fixtures folder. I dont need to use globalThis when I use an alias
+    cy.fixture("userDetails").as("user");
+  });
+
   it("Should be able to submit a succesful submission via Contact Uns Form", () => {
     cy.visit("https://www.automationteststore.com/");
     //For this kind of selector I need to install:  npm install --save-dev @cypress/xpath
@@ -11,8 +16,13 @@ describe("Test Contact Us form via Automation Test store", () => {
       .then((link) => {
         cy.log("User clicks in button: ", link.text());
       });
-    cy.get("#ContactUsFrm_first_name").type("My first Name");
-    cy.get("#ContactUsFrm_email").type("email@saludos.com");
+
+    // I use the fixture with the alias
+    cy.get("@user").then((user) => {
+      cy.get("#ContactUsFrm_first_name").type(user.first_name);
+      cy.get("#ContactUsFrm_email").type(user.email);
+    });
+
     cy.get("#ContactUsFrm_email").should("have.attr", "name", "email");
     cy.get("#ContactUsFrm_enquiry").type("This is a random message");
     // This selector is more optimized as .btn > div

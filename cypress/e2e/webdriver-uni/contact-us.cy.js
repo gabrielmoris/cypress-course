@@ -3,10 +3,12 @@
 
 describe("Test Contact Us form via WebdriverUni", () => {
   before(() => {
+    // shis have to match the filename in fixtures folder
     cy.fixture("example").then((data) => {
       globalThis.data = data;
     });
   });
+
   it("Should be able to submit a succesful submission via Contact Uns Form", () => {
     cy.visit("http://www.webdriveruniversity.com/");
     // To remove an attribute
