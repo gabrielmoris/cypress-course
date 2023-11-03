@@ -3,7 +3,7 @@
 
 describe("Test file upload in webdriveruni", () => {
   it("Upload a File", () => {
-    cy.visit("http://www.webdriveruniversity.com/");
+    cy.visit("/");
     cy.get("#file-upload")
       .invoke("removeAttr", "target")
       .click({ force: true });
@@ -15,7 +15,7 @@ describe("Test file upload in webdriveruni", () => {
   });
 
   it("Click on upload without File", () => {
-    cy.visit("http://www.webdriveruniversity.com/");
+    cy.visit("/");
     cy.get("#file-upload")
       .invoke("removeAttr", "target")
       .click({ force: true });

@@ -9,11 +9,13 @@ describe("Test Contact Us form via WebdriverUni", () => {
     });
   });
 
-  it("Should be able to submit a succesful submission via Contact Uns Form", () => {
-    cy.visit("http://www.webdriveruniversity.com/");
+  beforeEach(() => {
+    cy.visit("/");
     // To remove an attribute
     cy.get("#contact-us").invoke("removeAttr", "target").click();
+  });
 
+  it("Should be able to submit a succesful submission via Contact Uns Form", () => {
     // If I want to access to the DOM directly:
     cy.document().should("have.property", "charset").and("eq", "UTF-8");
 
@@ -24,7 +26,7 @@ describe("Test Contact Us form via WebdriverUni", () => {
     cy.url().should("include", "contactus.html");
     const { first_name, last_name, email, body } = data;
     cy.webdriveruniContactFormSubmission(
-      first_name,
+      Cypress.env("first_name_env"),
       last_name,
       email,
       body,
@@ -34,7 +36,7 @@ describe("Test Contact Us form via WebdriverUni", () => {
   });
 
   it("Shouldn't be able to submit a succesful submission via Contact Uns Form as all fields are required", () => {
-    cy.visit("http://www.webdriveruniversity.com/Contact-Us/contactus.html");
+    // cy.visit("/Contact-Us/contactus.html");
     const { first_name, last_name, body } = data;
     cy.webdriveruniContactFormSubmission(
       first_name,

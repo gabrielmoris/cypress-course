@@ -3,14 +3,14 @@
 
 describe("Validate Webdriveruni homepage links", () => {
   it("confirm links redirect to the correct pages", () => {
-    cy.visit("http://www.webdriveruniversity.com/");
+    cy.visit("/");
     cy.get("#contact-us").invoke("removeAttr", "target").click();
 
     cy.url().should("include", "contactus");
     cy.go("back");
     // cy.reload(); // reload not using cache
     cy.reload(true); // reload using cache
-    cy.url().should("include", "http://www.webdriveruniversity.com/");
+    cy.url().should("include", "/");
 
     cy.go("forward");
     cy.url().should("include", "contactus");

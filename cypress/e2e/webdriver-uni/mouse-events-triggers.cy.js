@@ -3,7 +3,7 @@
 
 describe("Test Mouse events", () => {
   it("Scroll element into view", () => {
-    cy.visit("http://www.webdriveruniversity.com/");
+    cy.visit("/");
     cy.get("#actions")
       .scrollIntoView()
       .invoke("removeAttr", "target")
@@ -11,7 +11,7 @@ describe("Test Mouse events", () => {
   });
 
   it("Drag & drop a draggable item", () => {
-    cy.visit("http://www.webdriveruniversity.com/");
+    cy.visit("/");
     cy.get("#actions").invoke("removeAttr", "target").click({ force: true });
 
     cy.get("#draggable").trigger("mousedown", { which: 1 });
@@ -23,7 +23,7 @@ describe("Test Mouse events", () => {
   });
 
   it("Double mouse click", () => {
-    cy.visit("http://www.webdriveruniversity.com/");
+    cy.visit("/");
     cy.get("#actions").invoke("removeAttr", "target").click({ force: true });
 
     cy.get("#double-click")
@@ -32,7 +32,7 @@ describe("Test Mouse events", () => {
   });
 
   it("Hold  down the left mouse click", () => {
-    cy.visit("http://www.webdriveruniversity.com/");
+    cy.visit("/");
     cy.get("#actions").invoke("removeAttr", "target").click({ force: true });
 
     cy.get("#click-box")

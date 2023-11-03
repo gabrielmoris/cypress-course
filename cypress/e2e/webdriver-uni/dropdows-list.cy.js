@@ -3,7 +3,7 @@
 
 describe("Interact with dropdown lists in webdriveruni", () => {
   it("Select specific values using the dropdown list", () => {
-    cy.visit("http://www.webdriveruniversity.com/");
+    cy.visit("/");
     cy.get("#dropdown-checkboxes-radiobuttons")
       .invoke("removeAttr", "target")
       .click({ force: true });

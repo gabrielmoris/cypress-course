@@ -3,7 +3,7 @@
 
 describe("Handle js Alerts", () => {
   it("confirm js alerts contains the correct text", () => {
-    cy.visit("http://www.webdriveruniversity.com/");
+    cy.visit("/");
     cy.get("#popup-alerts").invoke("removeAttr", "target").click();
     cy.get("#button1").click();
     cy.on("window:alert", (str) => {
@@ -12,7 +12,7 @@ describe("Handle js Alerts", () => {
   });
 
   it("Validate JS confirm alert box works correctly when clicking OK", () => {
-    cy.visit("http://www.webdriveruniversity.com/");
+    cy.visit("/");
     cy.get("#popup-alerts").invoke("removeAttr", "target").click();
     cy.get("#button4").click();
 
@@ -24,7 +24,7 @@ describe("Handle js Alerts", () => {
   });
 
   it("Validate JS confirm alert box works correctly when clicking Cancel", () => {
-    cy.visit("http://www.webdriveruniversity.com/");
+    cy.visit("/");
     cy.get("#popup-alerts").invoke("removeAttr", "target").click();
     cy.get("#button4").click();
 
@@ -36,7 +36,7 @@ describe("Handle js Alerts", () => {
   });
 
   it("Validate JS confirm alert box using a stub", () => {
-    cy.visit("http://www.webdriveruniversity.com/");
+    cy.visit("/");
     cy.get("#popup-alerts").invoke("removeAttr", "target").click();
     const stub = cy.stub();
     cy.on("window:confirm", stub);
