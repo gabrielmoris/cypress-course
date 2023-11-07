@@ -4,6 +4,8 @@
 import HomePage_PO from "../../support/pageObjects/webdriver-uni/Homepage_PO";
 import Contact_us_PO from "../../support/pageObjects/webdriver-uni/Contact_us_PO";
 describe("Test Contact Us form via WebdriverUni", () => {
+  // With this command I can overwritte the default timeout foronly this test
+  Cypress.config("defaultCommandTimeout", 2000);
   const contact_us_po = new Contact_us_PO();
   const homePage_PO = new HomePage_PO();
 
@@ -16,7 +18,10 @@ describe("Test Contact Us form via WebdriverUni", () => {
 
   beforeEach(() => {
     homePage_PO.visitHomepage();
+    cy.wait(3000);
     homePage_PO.click_on_contact_us_btn();
+    // With this command I stop the test and I have to restart manually. It is used to debug
+    // cy.pause();
   });
 
   it("Should be able to submit a succesful submission via Contact Uns Form", () => {

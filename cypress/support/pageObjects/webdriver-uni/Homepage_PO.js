@@ -2,10 +2,12 @@
 
 class HomePage_PO {
   visitHomepage() {
-    cy.visit("/");
+    cy.visit("/", { timeout: 6000 });
   }
   click_on_contact_us_btn() {
-    cy.get("#contact-us").invoke("removeAttr", "target").click();
+    cy.get("#contact-us")
+      .invoke("removeAttr", "target")
+      .click({ force: true }, { timeout: 8000 });
   }
 }
 
