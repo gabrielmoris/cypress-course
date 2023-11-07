@@ -3,6 +3,7 @@
 
 describe("Test Contact Us form via Automation Test store", () => {
   before(() => {
+    cy.viewport(550, 750);
     // shis have to match the filename in fixtures folder. I dont need to use globalThis when I use an alias
     cy.fixture("userDetails").as("user");
   });
