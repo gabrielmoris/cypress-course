@@ -1,7 +1,11 @@
 // Putting this on the top of the doccument will allow me to have the right types of Cypress
 /// <reference types="Cypress"/>
+import AutoStore_Homepage_PO from "../../support/pageObjects/automation-test-store/AutoStore_Homepage_PO";
+import Autostore_Haircare_PO from "../../support/pageObjects/automation-test-store/Autostore_Haircare_PO";
 
 describe("Add multiple Items to Basket", () => {
+  const autoStoreHomepagePo = new AutoStore_Homepage_PO();
+  const autoStoreHairCare = new Autostore_Haircare_PO();
   before(() => {
     cy.fixture("products").then((data) => {
       globalThis.data = data;
@@ -9,15 +13,11 @@ describe("Add multiple Items to Basket", () => {
   });
 
   beforeEach(() => {
-    cy.visit("https://www.automationteststore.com/");
-    cy.get('a[href*="?rt=product/category&path=').contains("Hair Care").click();
+    autoStoreHomepagePo.accessHomepage();
+    autoStoreHomepagePo.clickHaircareLink();
   });
 
   it("Add specific Items to Basket", () => {
-    globalThis.data.productName.forEach((product) => {
-      cy.addProductToBasket(product);
-    });
-
-    cy.get(".dropdown-toggle > .fa").click();
+    autoStoreHairCare.addHairCareProductsToBasket();
   });
 });

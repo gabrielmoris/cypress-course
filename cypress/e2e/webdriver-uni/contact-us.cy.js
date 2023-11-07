@@ -4,18 +4,17 @@
 import HomePage_PO from "../../support/pageObjects/webdriver-uni/Homepage_PO";
 import Contact_us_PO from "../../support/pageObjects/webdriver-uni/Contact_us_PO";
 describe("Test Contact Us form via WebdriverUni", () => {
+  const contact_us_po = new Contact_us_PO();
+  const homePage_PO = new HomePage_PO();
+
   before(() => {
-    // shis have to match the filename in fixtures folder
+    // this have to match the filename in fixtures folder
     cy.fixture("example").then((data) => {
       globalThis.data = data;
     });
   });
 
   beforeEach(() => {
-    // cy.visit("/");
-    // // To remove an attribute
-    // cy.get("#contact-us").invoke("removeAttr", "target").click();
-    const homePage_PO = new HomePage_PO();
     homePage_PO.visitHomepage();
     homePage_PO.click_on_contact_us_btn();
   });
@@ -32,7 +31,6 @@ describe("Test Contact Us form via WebdriverUni", () => {
     const { first_name, last_name, email, body } = data;
 
     // Using Page Object
-    const contact_us_po = new Contact_us_PO();
     contact_us_po.contact_form_submission(
       Cypress.env("first_name_env"),
       last_name,
