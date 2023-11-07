@@ -4,7 +4,7 @@ class Autostore_Haircare_PO {
   addHairCareProductsToBasket() {
     globalThis.data.productName.forEach((product) => {
       cy.addProductToBasket(product).then(() => {
-        //With this command I can debug in the browser the code
+        // With this command I can debug in the browser the code
         // debugger;
       });
     });
