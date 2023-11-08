@@ -6,8 +6,9 @@
   "scripts": {
     "start": "cypress open",
     "test": "cypress run",
-    "chrome-headed": "./node_modules/.bin/cypress run --headed --browser chrome",
-    "webdriver-uni": "./node_modules/.bin/cypress run --spec cypress/e2e/webdriver-uni/*"
+    "rundashboard": "cypress run --record --key 9c8c2fcb-650b-424c-a8c9-5d6decfeed28",
+    "chrome-headed": "cypress run --headed --browser chrome",
+    "webdriver-uni": "cypress run --spec cypress/e2e/webdriver-uni/*"
   },
   "author": "Gabriel C. Moris",
   "license": "ISC",

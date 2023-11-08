@@ -17,7 +17,7 @@ class Contact_us_PO {
     cy.get($selector).contains(textToLocate, { timeout: 50000 });
     // I can choose when I want to do a screenshot
     // cy.screenshot();
-    // cy.screenshot("Make a contact us form submission");
+    cy.screenshot("Make a contact us form submission");
   }
 }
 

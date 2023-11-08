@@ -18,6 +18,7 @@ module.exports = defineConfig({
     trashAssetsBeforeRuns: true,
     videoCompression: 51, // if I enable video recording 51 is the worst quality, 0 is the best quality
     video: false,
+    // videoUploadOnPasses: true,
     viewportHeight: 1080,
     viewportWidth: 1920,
     env: {
