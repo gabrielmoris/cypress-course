@@ -8,12 +8,17 @@
     "test": "cypress run",
     "rundashboard": "cypress run --record --key 9c8c2fcb-650b-424c-a8c9-5d6decfeed28",
     "chrome-headed": "cypress run --headed --browser chrome",
-    "webdriver-uni": "cypress run --spec cypress/e2e/webdriver-uni/*"
+    "webdriver-uni": "cypress run --spec cypress/e2e/webdriver-uni/*",
+    "junit-merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/results.xml",
+    "powershell-delete-junit-report": "powershell -ExecutionPolicy Bypass -Command \"Remove-Item -Path 'cypress/results/*' -Force -Recurse\"",
+    "bash-delete-junit-report": "rm -rf cypress/results/*"
   },
   "author": "Gabriel C. Moris",
   "license": "ISC",
   "devDependencies": {
     "@cypress/xpath": "^2.0.3",
-    "cypress": "12.14.0"
+    "cypress": "12.14.0",
+    "cypress-multi-reporters": "^1.6.4",
+    "mocha-junit-reporter": "^2.2.1"
   }
 }

@@ -25,4 +25,8 @@ module.exports = defineConfig({
       first_name_env: "environment in cypress.config.js",
     },
   },
+  reporter: "cypress-multi-reporters",
+  reporterOptions: {
+    configFile: "reporter-config.json",
+  },
 });
