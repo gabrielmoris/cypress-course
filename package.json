@@ -10,8 +10,11 @@
     "chrome-headed": "cypress run --headed --browser chrome",
     "webdriver-uni": "cypress run --spec cypress/e2e/webdriver-uni/*",
     "junit-merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/results.xml",
-    "powershell-delete-junit-report": "powershell -ExecutionPolicy Bypass -Command \"Remove-Item -Path 'cypress/results/*' -Force -Recurse\"",
-    "bash-delete-junit-report": "rm -rf cypress/results/*"
+    "mochawesome-merge": "npx mochawesome-merge cypress/results/mochawesome/*.json > mochawesome.json && npx marge mochawesome.json",
+    "powershell-delete-mochawesome-html": "powershell -ExecutionPolicy Bypass -Command \"Remove-Item -Path 'mochawesome-report/*' -Force -Recurse\"",
+    "powershell-delete-reports": "powershell -ExecutionPolicy Bypass -Command \"Remove-Item -Path 'cypress/results/*' -Force -Recurse\"",
+    "bash-delete-junit-report": "rm -rf cypress/results/*",
+    "cypress-regression-pack": "npm run powershell-delete-reports && npm run powershell-delete-mochawesome-html && npm run test && npm run mochawesome-merge"
   },
   "author": "Gabriel C. Moris",
   "license": "ISC",
