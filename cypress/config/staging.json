@@ -1,0 +1,6 @@
+{
+  "baseUrl": "https://www.gabrielcmoris.com",
+  "env": {
+    "name": "I am in staging config file"
+  }
+}
