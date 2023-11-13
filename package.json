@@ -7,6 +7,7 @@
     "start": "cypress open",
     "test": "cypress run",
     "test-staging": "npx cypress run --spec cypress/e2e/webdriver-uni/browser-navigation.cy.js --env configFile=staging --headed",
+    "test-fail": "npx cypress run --spec cypress/e2e/automation-test-store/test-to-fail.cy.js",
     "rundashboard": "cypress run --record --key 9c8c2fcb-650b-424c-a8c9-5d6decfeed28",
     "chrome-headed": "cypress run --headed --browser chrome",
     "webdriver-uni": "cypress run --spec cypress/e2e/webdriver-uni/*",

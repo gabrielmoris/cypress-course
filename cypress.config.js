@@ -36,6 +36,10 @@ module.exports = defineConfig({
     // videoUploadOnPasses: true,
     viewportHeight: 1080,
     viewportWidth: 1920,
+    retries: {
+      runMode: 0,
+      openMode: 1,
+    },
     env: {
       first_name_env: "environment in cypress.config.js",
     },
