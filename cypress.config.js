@@ -14,9 +14,12 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
       // accept a configFile value or use development by default
-      const file = config.env.configFile || "development";
-
-      return getConfigurationByFile(file);
+      if (config.env.configFile) {
+        const file = config.env.configFile;
+        return getConfigurationByFile(file);
+      } else {
+        return;
+      }
     },
     specPattern: "cypress/e2e/**/*.{js,jsx,tsx,feature}",
     exludeSpecPattern: "cypress/e2e/other/*.{js,jsx,tsx,feature}",
