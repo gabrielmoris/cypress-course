@@ -11,12 +11,14 @@
     "rundashboard": "cypress run --record --key 9c8c2fcb-650b-424c-a8c9-5d6decfeed28",
     "chrome-headed": "cypress run --headed --browser chrome",
     "webdriver-uni": "cypress run --spec cypress/e2e/webdriver-uni/*",
+    "automation-test-store-daashboard": "cypress run --spec cypress/e2e/automation-test-store/* --record --key 9c8c2fcb-650b-424c-a8c9-5d6decfeed28",
     "junit-merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/results.xml",
     "mochawesome-merge": "npx mochawesome-merge cypress/results/mochawesome/*.json > mochawesome.json && npx marge mochawesome.json",
     "powershell-delete-mochawesome-html": "powershell -ExecutionPolicy Bypass -Command \"Remove-Item -Path 'mochawesome-report/*' -Force -Recurse\"",
     "powershell-delete-reports": "powershell -ExecutionPolicy Bypass -Command \"Remove-Item -Path 'cypress/results/*' -Force -Recurse\"",
     "bash-delete-junit-report": "rm -rf cypress/results/*",
-    "cypress-regression-pack": "npm run powershell-delete-reports && npm run powershell-delete-mochawesome-html && npm run test && npm run mochawesome-merge"
+    "cypress-regression-pack": "npm run powershell-delete-reports && npm run powershell-delete-mochawesome-html && npm run test && npm run mochawesome-merge",
+    "cypress-multi-browser": "npm run webdriver-uni -- --browser electron --headed & npm run webdriver-uni -- --browser edge --headed & npm run webdriver-uni -- --browser chrome --headed "
   },
   "author": "Gabriel C. Moris",
   "license": "ISC",

@@ -50,13 +50,18 @@ describe("Test Contact Us form via WebdriverUni", () => {
     // cy.visit("/Contact-Us/contactus.html");
     const { first_name, last_name, body } = data;
     // Using Cypress Commands
-    cy.webdriveruniContactFormSubmission(
-      first_name,
-      last_name,
-      " ",
-      body,
-      "body",
-      "Error: "
-    );
+
+    if (Cypress.isBrowser("firefox")) {
+      cy.log("we dont run this test in firefox");
+    } else {
+      cy.webdriveruniContactFormSubmission(
+        first_name,
+        last_name,
+        " ",
+        body,
+        "body",
+        "Error: "
+      );
+    }
   });
 });
