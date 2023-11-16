@@ -12,3 +12,6 @@ cypress/screenshots
 cypress/results
 mochawesome-report
 mochawesome.json
+
+# Large Files
+jenkins.war

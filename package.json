@@ -18,7 +18,8 @@
     "powershell-delete-reports": "powershell -ExecutionPolicy Bypass -Command \"Remove-Item -Path 'cypress/results/*' -Force -Recurse\"",
     "bash-delete-junit-report": "rm -rf cypress/results/*",
     "cypress-regression-pack": "npm run powershell-delete-reports && npm run powershell-delete-mochawesome-html && npm run test && npm run mochawesome-merge",
-    "cypress-multi-browser": "npm run webdriver-uni -- --browser electron --headed & npm run webdriver-uni -- --browser edge --headed & npm run webdriver-uni -- --browser chrome --headed "
+    "cypress-multi-browser": "npm run webdriver-uni -- --browser electron --headed & npm run webdriver-uni -- --browser edge --headed & npm run webdriver-uni -- --browser chrome --headed ",
+    "start-jenkins": "node runJenkins.js"
   },
   "author": "Gabriel C. Moris",
   "license": "ISC",
