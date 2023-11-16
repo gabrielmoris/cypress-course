@@ -7,7 +7,7 @@
 Before Running Jenkins we need to install Java and paste in the root of this project the file `jenkins.war`
 
 1.  Install Java:
-    [Search and install the version 11.0.2](https://jdk.java.net/archive/)
+    [Search and install the version 11.0.2 or 17](https://jdk.java.net/archive/)
     Unpack the file inside a folrer named JAVA in `C:\Program Files (x86)`. If you dont have this folder you create it.
     Open: control panel > system > advanced system settings > environment variables
     In system variables click new
@@ -20,3 +20,5 @@ Before Running Jenkins we need to install Java and paste in the root of this pro
     Download Jenkins from [The official website](https://www.jenkins.io/download/) and paste it in the root of this project
 
 3.  You can run Jenkins with the command: `npm nun start-jenkins`
+
+4.  install plugins: Github Integration, Github Authorization, NodeJs, Greenballs
