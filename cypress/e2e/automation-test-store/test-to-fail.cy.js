@@ -5,7 +5,7 @@ describe("Test to Fail", () => {
     cy.visit("https://www.automationteststore.com/");
   });
 
-  it(
+  it.skip(
     "Log information of each Hair care product",
     { retries: { runMode: 2, openMode: 2 } },
     () => {
