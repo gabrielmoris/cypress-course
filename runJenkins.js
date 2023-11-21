@@ -3,9 +3,8 @@ const path = require("path");
 
 const currentDir = __dirname;
 const jenkinsWarPath = path.join(currentDir, "jenkins.war");
-const command = `java -jar "${jenkinsWarPath}"`;
+const command = `java -jar -Dfile.encoding=UTF-8 "${jenkinsWarPath}"`;
 
-// Execute the command in the specified directory
 exec(command, { cwd: currentDir }, (error, stdout, stderr) => {
   if (error) {
     console.error(`Error executing the command: ${error}`);
