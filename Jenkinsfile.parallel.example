@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+
+    tools {nodejs "node"}
+
+    stages {
+        stage('Cypress PArallel Test Suite') {
+            parallel {
+                stage('Slave Node1') {
+                    agent{
+                        label "remote1"
+                    }
+                    steps {
+                        git url: 'https://github.com/gabrielmoris/cypress-course.git'
+                        bat 'npm install'
+                        bat 'npm update'
+                        bat 'npm run automation-test-store-dashboard-parallel'
+                    }
+                }
+                stage('Slave Node2') {
+                    agent{
+                        label "remote2"
+                    }
+                    steps {
+                        git url: 'https://github.com/gabrielmoris/cypress-course.git'
+                        bat 'npm install'
+                        bat 'npm update'
+                        bat 'npm run webdriver-uni-store-dashboard-parallel'
+                    }
+                }
+            }
+        }
+    }
+}
