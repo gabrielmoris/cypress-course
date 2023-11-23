@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Test Suite') {
             agent{
-                label "Built-In Node"
+                label "built-in"
             }
             steps {
                 git url: 'https://github.com/gabrielmoris/cypress-course.git'
