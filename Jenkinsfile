@@ -18,7 +18,7 @@ pipeline {
                 git url: 'https://github.com/gabrielmoris/cypress-course.git'
                 bat 'npm install'
                 bat 'npm update'
-                bat 'npm run webdriver-uni-store-dashboard'
+                bat 'npm run %Script%'
             }
         }
     }
