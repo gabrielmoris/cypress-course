@@ -22,3 +22,8 @@ Before Running Jenkins we need to install Java and paste in the root of this pro
 3.  You can run Jenkins with the command: `npm nun start-jenkins`
 
 4.  install plugins: Github Integration, Github Authorization, NodeJs, Greenballs
+
+## Testing APIs
+
+We are using JSON server to test the apis. `git@github.com:qauni/json-server.git`
+
