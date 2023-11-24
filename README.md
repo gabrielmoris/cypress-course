@@ -27,3 +27,11 @@ Before Running Jenkins we need to install Java and paste in the root of this pro
 
 We are using JSON server to test the apis. `git@github.com:qauni/json-server.git`
 
+This test is preseted as excluded, since only should run only when the server is running
+
+```javascript
+    exludeSpecPattern: [
+      "cypress/e2e/other/*.{js,jsx,tsx,feature}", // exclude others
+      "cypress/e2e/json-server-test/*.{js,jsx,tsx,feature}", //exclude the json server specific tests
+    ],
+```
