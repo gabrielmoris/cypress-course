@@ -1,5 +1,6 @@
 /// <reference types="Cypress"/>
 describe("Post, Get, Delete Requests", () => {
+  let comments = [];
   let randomComment =
     Math.random().toString(36).substring(1) +
     Math.random().toString(36).substring(1);
@@ -18,7 +19,6 @@ describe("Post, Get, Delete Requests", () => {
   });
 
   it("Locate a new Comment", () => {
-    let comments = [];
     cy.request({
       method: "GET",
       url: "http://localhost:3000/comments",
@@ -39,18 +39,10 @@ describe("Post, Get, Delete Requests", () => {
 
   it("Delete a new Comment", () => {
     cy.request({
-      method: "GET",
-      url: "http://localhost:3000/comments",
-      headers: {
-        accept: "application/json",
-      },
+      method: "DELETE",
+      url: "http://localhost:3000/comments/" + comments.length,
     }).then((res) => {
-      cy.request({
-        method: "DELETE",
-        url: "http://localhost:3000/comments/" + res.body.length,
-      }).then((res) => {
-        expect(res.status).to.eql(200);
-      });
+      expect(res.status).to.eql(200);
     });
   });
 });
