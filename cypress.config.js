@@ -51,4 +51,5 @@ module.exports = defineConfig({
   reporterOptions: {
     configFile: "reporter-config.json",
   },
+  experimentalStudio: true,
 });
