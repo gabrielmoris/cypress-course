@@ -1,6 +1,7 @@
 const { defineConfig } = require("cypress");
 const fs = require("fs-extra");
 const path = require("path");
+const cucumber = require("cypress-cucumber-preprocessor").default;
 
 function getConfigurationByFile(file) {
   const pathToConfigFile = path.resolve("cypress", "config", `${file}.json`);
@@ -14,6 +15,8 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
       // accept a configFile value or use development by default
+      on("file:preprocessor", cucumber());
+
       if (config.env.configFile) {
         const file = config.env.configFile;
         return getConfigurationByFile(file);
